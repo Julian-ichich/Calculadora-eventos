@@ -96,8 +96,10 @@ botonResta.addEventListener('click', () => {
     if (verificadordeoperacion == 1) {
         valorUno = resultado.value
         valorUnoResta = parseInt(valorUno)
+        valorentotalresta = valorUnoResta - valorentotalresta  
         resultado.value = ''
         controlDeOperacion = 2
+        
     }
 })
 
@@ -149,13 +151,14 @@ botonIgual.addEventListener('click', () => {
             valorentotalsuma=0
             break;
         case 2:
-            //valorUnoResta=valorentotalresta
+            valorUnoResta = valorentotalresta
             valorDos = resultado.value
             let valorDosResta = parseInt(valorDos)
             resultado.value = ''
             let resultadoresta = valorUnoResta - valorDosResta
             resultado.value=resultadoresta
             valorUnoResta=resultado.value
+            valorentotalresta=0
             break;
         case 3:
             valorUnoMultiplicar = valorentotalmultiplicar
