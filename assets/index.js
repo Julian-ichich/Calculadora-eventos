@@ -26,6 +26,7 @@ let verificadordeoperacion = 0
 let valorentotalsuma = 0
 let valorentotalresta = 0
 let valorentotalmultiplicar = 1 
+let valorentotaldividir = 0
 
 botonUno.addEventListener('click', () => {
     resultado.value += botonUno.value
@@ -86,7 +87,6 @@ botonSuma.addEventListener('click', () => {
         valorentotalsuma = valorentotalsuma + valorUnosuma
         resultado.value = ''
         controlDeOperacion = 1
-        console.log(valorentotalsuma)
     }
     
 })
@@ -96,10 +96,8 @@ botonResta.addEventListener('click', () => {
     if (verificadordeoperacion == 1) {
         valorUno = resultado.value
         valorUnoResta = parseInt(valorUno)
-        valorentotalresta= valorentotalresta - valorUnoResta
         resultado.value = ''
         controlDeOperacion = 2
-        console.log(valorentotalresta)
     }
 })
 
@@ -111,7 +109,6 @@ botonMultiplicar.addEventListener('click', () => {
         valorentotalmultiplicar = valorentotalmultiplicar * valorUnoMultiplicar
         resultado.value = ''
         controlDeOperacion = 3
-        console.log(valorentotalmultiplicar)
     }
 })
 
@@ -131,7 +128,8 @@ botonClear.addEventListener('click', () => {
     valorDos=0
     valorentotalsuma=0
     valorentotalresta=0
-    valorentotalmultiplicar= 0
+    valorentotalmultiplicar= 1
+    valorentotaldividir = 0
 })
 
 botonIgual.addEventListener('click', () => {
@@ -146,11 +144,12 @@ botonIgual.addEventListener('click', () => {
             let valorDosSuma = parseInt(valorDos)
             resultado.value = ''
             let resultadosuma = valorUnosuma + valorDosSuma
+            valorUno=resultadosuma
             resultado.value = resultadosuma
-            
+            valorentotalsuma=0
             break;
         case 2:
-            valorUnoResta=valorentotalresta
+            //valorUnoResta=valorentotalresta
             valorDos = resultado.value
             let valorDosResta = parseInt(valorDos)
             resultado.value = ''
@@ -165,6 +164,7 @@ botonIgual.addEventListener('click', () => {
             resultado.value = ''
             let resultadomultiplicacion = valorUnoMultiplicar * valorDosMultiplicar
             resultado.value = resultadomultiplicacion
+            valorentotalmultiplicar=1
             break;
         case 4:
             valorDos = resultado.value
@@ -172,6 +172,7 @@ botonIgual.addEventListener('click', () => {
             resultado.value = ''
             let resultadodivision = valorUnoDivision / valorDosDividir
             resultado.value = resultadodivision
+             valorentotaldividir = 0
             break;
 
     }
